@@ -1,6 +1,5 @@
 <?php
 
-require 'Auth-Spotify.php';
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, "https://api.spotify.com/v1/search?q=orelsan&type=artist");
