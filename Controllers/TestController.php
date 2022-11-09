@@ -9,8 +9,10 @@ class TestController extends Controller
         $this->render('test/index');
     }
 
-    public function test()
+    public function test($params=null)
     {
-        $this->render('test/test');
+        var_dump($params);
+        $test = ['id'=> 4, 'content'=>"Bonjour on fait un test devant la classe"];
+        $this->render('test/test',compact('test'));
     }
 }

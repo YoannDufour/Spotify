@@ -2,37 +2,40 @@
 
 namespace App\Entity;
 
-class Artist
+class Artist extends Model
 {
 
+
     public function __construct(
-        public string $id,
+        public string|null $idSpotify,
 
-        public string $name,
+        public string|null $name,
 
-        public int    $followers,
+        public int|null    $followers,
 
-        public array  $genders,
+        public array|null  $genders,
 
-        public string $link,
+        public string|null $link,
 
-        public string $picture,
+        public string|null $picture,
+        public int|null $id = null
     )
     {
+        $this->table = "artist";
     }
 
-    public function getId(): string
+    public function getIdSpotify(): ?string
     {
-        return $this->id;
+        return $this->idSpotify;
     }
 
-    public function setId(string $id): self
+    public function setIdSpotify(string $idSpotify): self
     {
-        $this->id = $id;
+        $this->idSpotify = $idSpotify;
         return $this;
     }
 
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -49,12 +52,12 @@ class Artist
         return $this;
     }
 
-    public function getFollowers(): int
+    public function getFollowers(): ?int
     {
         return $this->followers;
     }
 
-    public function getGenders(): array
+    public function getGenders(): ?array
     {
         return $this->genders;
     }
@@ -65,7 +68,7 @@ class Artist
         return $this;
     }
 
-    public function getLink(): string
+    public function getLink(): ?string
     {
         return $this->link;
     }
@@ -77,7 +80,7 @@ class Artist
     }
 
 
-    public function getPicture(): string
+    public function getPicture(): ?string
     {
         return $this->picture;
     }
@@ -87,6 +90,4 @@ class Artist
         $this->picture = $picture;
         return $this;
     }
-
-
 }
