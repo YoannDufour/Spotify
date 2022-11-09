@@ -35,7 +35,7 @@ use App\Entity\Artist;
                 <div class="card-body">
                     <h5 class="card-title">Name : <?= $artist->getName()?></h5>
                     <p class="card-text">Followers : <?= $artist->getFollowers()?></p>
-                    <p class="card-text">Genres : <?= $artist->getGenders()?></p>
+                    <p class="card-text">Genres : <?php foreach($artist->getGenders() as $genre) echo $genre . ' '?></p>
                     <form class="d-flex searchform mb-4" action="/artist/fav_artist" method="post">  
                         <input name='artist' type='hidden' value='<?= json_encode($artist) ?>'>                      
                         <button class="btn btn-outline-success" type="submit">Favori</button>
